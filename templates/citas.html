@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Citas</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.fecha.label }} {{ form.fecha() }}<br>
+    {{ form.hora.label }} {{ form.hora() }}<br>
+    {{ form.estado.label }} {{ form.estado() }}<br>
+    {{ form.paciente_id.label }} {{ form.paciente_id() }}<br>
+    {{ form.medico_id.label }} {{ form.medico_id() }}<br>
+    {{ form.submit() }}
+</form>
+
+<h3>Lista de Citas</h3>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado</th>
+            <th>Paciente</th>
+            <th>Médico</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cita in citas %}
+        <tr>
+            <td>{{ cita.id }}</td>
+            <td>{{ cita.fecha }}</td>
+            <td>{{ cita.hora }}</td>
+            <td>{{ cita.estado }}</td>
+            <td>{{ cita.paciente_id }}</td>
+            <td>{{ cita.medico_id }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

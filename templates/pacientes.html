@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Pacientes</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.nombre.label }} {{ form.nombre() }}<br>
+    {{ form.apellido.label }} {{ form.apellido() }}<br>
+    {{ form.telefono.label }} {{ form.telefono() }}<br>
+    {{ form.email.label }} {{ form.email() }}<br>
+    {{ form.contraseña.label }} {{ form.contraseña() }}<br>
+    {{ form.submit() }}
+</form>
+<ul>
+    {% for paciente in pacientes %}
+        <li>{{ paciente.nombre }} {{ paciente.apellido }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

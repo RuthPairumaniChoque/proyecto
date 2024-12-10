@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Médicos</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.nombre.label }} {{ form.nombre() }}<br>
+    {{ form.especialidad.label }} {{ form.especialidad() }}<br>
+    {{ form.horario.label }} {{ form.horario() }}<br>
+    {{ form.email.label }} {{ form.email() }}<br>
+    {{ form.submit() }}
+</form>
+<ul>
+    {% for medico in medicos %}
+        <li>{{ medico.nombre }} - {{ medico.especialidad }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
